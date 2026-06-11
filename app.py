@@ -76,8 +76,8 @@ dates = pd.bdate_range(start=close.index[-1] + pd.Timedelta(days=1), periods=STE
 # 경로 샘플
 st.subheader("📈 경로 샘플(상위 5개) 겹쳐보기")
 fig2, ax2 = plt.subplots(figsize=(10, 4))
-ax2.plot(dates, res_q[:, :5], color='blue', alpha=0.3, linewidth=1, label='QRNG')
-ax2.plot(dates, res_p[:, :5], color='orange', alpha=0.3, linewidth=1, label='PRNG')
+ax2.plot(dates, res_q[:, :5], color='blue', alpha=0.7, linewidth=1, label='QRNG')
+ax2.plot(dates, res_p[:, :5], color='darkorange', alpha=0.7, linewidth=1, label='PRNG')
 ax2.set_title("Path Overlay (Blue: QRNG, Orange: PRNG)")
 st.pyplot(fig2)
 
@@ -86,8 +86,8 @@ st.subheader("📊 확률 원뿔(5% - 95%) 겹쳐보기")
 fig1, ax1 = plt.subplots(figsize=(10, 4))
 q_q = np.percentile(res_q, [5, 95], axis=1)
 q_p = np.percentile(res_p, [5, 95], axis=1)
-ax1.fill_between(dates, q_q[0], q_q[1], color='blue', alpha=0.1, label='QRNG Range')
-ax1.fill_between(dates, q_p[0], q_p[1], color='orange', alpha=0.1, label='PRNG Range')
+ax1.fill_between(dates, q_q[0], q_q[1], color='blue', alpha=0.35, label='QRNG Range')
+ax1.fill_between(dates, q_p[0], q_p[1], color='darkorange', alpha=0.35, label='PRNG Range')
 ax1.legend()
 st.pyplot(fig1)
 
